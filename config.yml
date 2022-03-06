@@ -1,0 +1,16 @@
+#database settings
+database:
+  driver: mysql
+  hostname: 34.101.114.150
+  port: 3306
+  username: users
+  password: secret
+  schema: products
+
+# database:
+#   driver: mysql
+#   hostname: localhost
+#   port: 3306
+#   username: users
+#   password: 6bd7KzEItBt2fHAISlPB
+#   schema: products
