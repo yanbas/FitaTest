@@ -42,60 +42,59 @@ func NewConnectionDB(driverDB string, database string, host string, user string,
 	
 
 	// Create Product
+	product := []entity.Products{
+		{
+			SKU: "120P90",
+			Name: "Google Home",
+			Price: 49.99,
+			Qty: 10,
+		},
+		{
+			SKU: "43N23P",
+			Name: "Macbook Pro",
+			Price: 5399.99,
+			Qty: 5,
+		},
+		{
+			SKU: "A304SD",
+			Name: "Alexa Speaker",
+			Price: 109.50,
+			Qty: 10,
+		},
+		{
+			SKU: "120P90",
+			Name: "Raspberry Pi B",
+			Price: 30.00,
+			Qty: 2,
+		},	
+	}
 
-	// product := []entity.Products{
-	// 	{
-	// 		SKU: "120P90",
-	// 		Name: "Google Home",
-	// 		Price: 49.99,
-	// 		Qty: 10,
-	// 	},
-	// 	{
-	// 		SKU: "43N23P",
-	// 		Name: "Macbook Pro",
-	// 		Price: 5399.99,
-	// 		Qty: 5,
-	// 	},
-	// 	{
-	// 		SKU: "A304SD",
-	// 		Name: "Alexa Speaker",
-	// 		Price: 109.50,
-	// 		Qty: 10,
-	// 	},
-	// 	{
-	// 		SKU: "120P90",
-	// 		Name: "Raspberry Pi B",
-	// 		Price: 30.00,
-	// 		Qty: 2,
-	// 	},	
-	// }
-
-	// promo := []entity.Promotion{
-	// 	{
-	// 		ProductID: "43N23P",
-	// 		TypePromo: "item",
-	// 		Item: "120P90",
-	// 		Amount: 0,
-	// 		Qty: 1,
-	// 	},
-	// 	{
-	// 		ProductID: "120P90",
-	// 		TypePromo: "amount",
-	// 		Item: "",
-	// 		Amount: 49.99,
-	// 		Qty: 3,
-	// 	},
-	// 	{
-	// 		ProductID: "A304SD",
-	// 		TypePromo: "percentage",
-	// 		Item: "",
-	// 		Amount: 0,
-	// 		Qty: 3,
-	// 		Percentage: 10,
-	// 	},
-	// }
-	// db.Create(&product)
-	// db.Create(&promo)
+	promo := []entity.Promotion{
+		{
+			ProductID: "43N23P",
+			TypePromo: "item",
+			Item: "120P90",
+			Amount: 0,
+			Qty: 1,
+		},
+		{
+			ProductID: "120P90",
+			TypePromo: "amount",
+			Item: "",
+			Amount: 49.99,
+			Qty: 3,
+		},
+		{
+			ProductID: "A304SD",
+			TypePromo: "percentage",
+			Item: "",
+			Amount: 0,
+			Qty: 3,
+			Percentage: 10,
+		},
+	}
+	db.Create(&product)
+	db.Create(&promo)
 
 
 	sqlDB, err := db.DB()

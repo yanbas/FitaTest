@@ -61,14 +61,14 @@ func(s *checkoutServiceImpl) Checkout(param graphql.ResolveParams) (interface{},
 					PromoID: promoCheck.ID,
 					Qty: qty,
 					Price: product.Price,
-					GrandTotal: product.Price,
+					GrandTotal: product.Price * float64(qty),
 				},
 				{
 					OrderID: orderId,
 					ProductID: productPromo.SKU,
 					Qty: 1,
 					Price: productPromo.Price,
-					GrandTotal: productPromo.Price * float64(qty),
+					GrandTotal: 0,
 					PromoID: promoCheck.ID,
 				},
 			}
@@ -85,7 +85,7 @@ func(s *checkoutServiceImpl) Checkout(param graphql.ResolveParams) (interface{},
 				},
 			}
 		}else {
-			promoAmount := ((product.Price * float64(qty)) * 100) / float64(promoCheck.Percentage)
+			promoAmount := product.Price * float64(qty) * float64(promoCheck.Percentage) / 100
 			order = []entity.Order{
 				{
 					OrderID: orderId,

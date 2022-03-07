@@ -22,6 +22,7 @@ func NewProductService(
 
 func(s *productServiceImpl) Products() (*[]entity.Products, error){
 	result, err := s.Repository.FindAllProducts()
+
 	if err != nil {
 		return nil, err
 	}

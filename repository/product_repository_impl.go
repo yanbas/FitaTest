@@ -8,11 +8,11 @@ import (
 )
 
 type productRepo struct {
-	connection *gorm.DB
+	
 }
 
 func NewProductRepository(conn *gorm.DB) ProductRepository {
-	return &productRepo{conn}
+	return &productRepo{}
 }
 
 func (p *productRepo)FindAllProducts() (*[]entity.Products, error) {
